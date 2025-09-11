@@ -19,7 +19,7 @@ const Header = (props) => {
             <div>
                 <a href="">Contact Me</a>
             </div>
-            {/* 43:36 */}
+            
         </div>
     )
 }
