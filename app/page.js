@@ -3,6 +3,7 @@ import About from "@/components/About";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
+import Work from "@/components/Work";
 import { Ovo, Outfit } from "next/font/google";
 
 const outfit = Outfit({
@@ -22,6 +23,7 @@ export default function Home() {
       <Header ovoClass={ovo.className} />
       <About ovoClass={ovo.className} />
       <Services ovoClass={ovo.className} />
+      <Work ovoClass={ovo.className} />
     </>
   );
 }
