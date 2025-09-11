@@ -1,32 +1,53 @@
 import { assets } from '@/assets/assets'
 import Image from 'next/image'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const Navbar = (props) => {
 
     const { ovoClass, outfitClass } = props
 
+    const [isScroll, setIsScroll] = useState(false)
+
     const sideMenuRef = useRef();
-    
+
     const openMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(-16rem)'
     }
-    
+
     const closeMenu = () => {
         sideMenuRef.current.style.transform = 'translateX(16rem)'
     }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsScroll(true);
+            } else {
+                setIsScroll(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // cleanup on unmount
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
 
     return (
         <>
             <div className='fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%]'>
                 <Image src={assets.header_bg_color} alt="Header gradient background image" className='w-full' />
             </div>
-            <nav className='w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50'>
+
+            <nav className={`w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50 transition-all duration-500 ${isScroll ? "bg-[rgba(255,255,255,0.5)] backdrop-blur-lg shadow-sm" : ""}`}>
                 <a href="#top">
                     <Image src={assets.logo} alt="Logo of the person" className='w-28 cursor-pointer mr-14' />
                 </a>
 
-                <ul className='hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-xs bg-opacity-50'>
+                <ul className={`hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 transition-all duration-500 ${isScroll ? "" : "bg-[rgba(255,255,255,0.5)] shadow-xs"} `}>
                     <li><a className={ovoClass} href='#top'>Home</a></li>
                     <li><a className={ovoClass} href='#about'>About me</a></li>
                     <li><a className={ovoClass} href='#services'>Services</a></li>
