@@ -7,7 +7,7 @@ const Header = (props) => {
     const { ovoClass } = props;
 
     return (
-        <div>
+        <div className='w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4'>
             <div>
                 <Image src={assets.profile_img} alt="profile picture of the user" className='rounder-full w-32' />
             </div>
@@ -16,10 +16,13 @@ const Header = (props) => {
             <p className={`max-w-2xl mx-auto ${ovoClass}`}>
                 I am a graphic designer from ... with ... years of experience in multiple companies like ... and clients ...
             </p>
-            <div>
-                <a href="">Contact Me</a>
+            <div className='flex flex-col sm:flex-row items-center gap-4 mt-4'>
+                <a href="#contact" className='px-10 py-3 border border-white rounded-full bg-black text-white flex items-center gap-2'>Contact Me <Image src={assets.right_arrow_white} alt="Button to go to contacting the user" className='w-4' /></a>
+
+                <a href="/sample-resume.pdf" download className='px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2'>
+                    My resume <Image src={assets.download_icon} alt="Button to download the resume of the user" className='w-4' /></a>
             </div>
-            
+
         </div>
     )
 }
