@@ -13,7 +13,6 @@ const Work = (props) => {
                 Welcome to my graphic design portfolio! Take a look at a curated collection of my latest work, showcasing my passion and expertise in creating impactful graphic designs. This isn't just a gallery of images; it's a testament to my ability to solve complex visual challenges and bring ideas to life. Each project reflects a unique journey, from initial concept to a polished, final product designed to resonate with its intended audience and drive real results.
             </p>
 
-            {/* 1:35:33 */}
         </div>
     )
 }
